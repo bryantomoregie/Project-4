@@ -1,11 +1,11 @@
 
 
-class ShoesController < ApplicationControllers
+class ShoesController < ApplicationController
 
  def index 
     shoes = Shoe.all
 
-    render (json: shoes)
+    render(json: shoes)
 
  end 
 
@@ -16,13 +16,13 @@ class ShoesController < ApplicationControllers
         brand: params[:brand],
         user_id: params[:user_id]
     })
-    render (json: shoes)     
+    render(json: shoes)     
  end
 
  def show
     shoes = Shoe.find(params[:id])
 
-    render (json: shoes)
+    render(json: shoes)
 
  end 
 
@@ -34,7 +34,7 @@ class ShoesController < ApplicationControllers
         brand: params[:brand],
         user_id: params[:user_id]
     })
-    render (json: shoes)     
+    render(json: shoes)     
 
  end 
 
