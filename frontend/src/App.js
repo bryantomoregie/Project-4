@@ -5,7 +5,7 @@ import 'rsuite/dist/styles/rsuite-default.css';
 import { FlexboxGrid } from 'rsuite'
 import { Container, Header, Content, Footer } from 'rsuite';
 import SignUp from './components/SignUp'
-import Login from './components/Login'
+import { Login } from './components/Login'
 
 class App extends Component {
 

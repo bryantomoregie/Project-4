@@ -14,8 +14,9 @@ User.destroy_all
 
 
 10.times do
-User.create({first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password_digest: Faker::Internet.password })
+User.create({first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: "testpassword" })
 end
+
 
 Shoe.create({model: "Air Jordan 1", size: 10.5, brand: "Nike", user_id: User.all.sample().id, image: "http://tiny.cc/odhipz", price: 263})
 Shoe.create({model: "Air Jordan 1", size: 9, brand: "Nike", user_id: User.all.sample().id, image: "http://tiny.cc/odhipz",  price: 250})

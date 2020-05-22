@@ -10,13 +10,17 @@ class ShoesController < ApplicationController
  end 
 
  def create 
-    shoes = Shoes.create({
+   if(self.current_user != nil)
+      shoes = Shoes.create({
         model: params[:model],
         size: params[:size],
         brand: params[:brand],
-        user_id: params[:user_id]
-    })
-    render(json: shoes)     
+        user_id: self.current_user.id
+      })
+      render(json: shoes) 
+   else
+      render json: {error: true, message:'Invalid Login'} 
+   end   
  end
 
  def show
