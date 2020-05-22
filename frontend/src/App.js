@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import 'rsuite/dist/styles/rsuite-default.css';
+import { FlexboxGrid } from 'rsuite'
 import { Container, Header, Content, Footer } from 'rsuite';
 import SignUp from './components/SignUp'
+import Login from './components/Login'
 
 class App extends Component {
 
@@ -26,7 +28,15 @@ class App extends Component {
             <Container>
                 <Header></Header>
                 <Content>
-                    <SignUp />
+                  <FlexboxGrid justify="center">
+                      <FlexboxGrid.Item colspan={5}></FlexboxGrid.Item>
+                      <FlexboxGrid.Item colspan={5}>
+                        <SignUp />
+                        <hr></hr>
+                        <Login />
+                      </FlexboxGrid.Item>
+                      <FlexboxGrid.Item colspan={5}></FlexboxGrid.Item>
+                  </FlexboxGrid>
                 </Content>
                 <Footer></Footer>
             </Container>

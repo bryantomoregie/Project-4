@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
 import { Form, FormGroup, FormControl, ControlLabel, Button, ButtonToolbar } from 'rsuite';
 
-export default class SignUp extends Component {
+export default class Login extends Component {
     render() {
         return(
             <Form>
-                <h1>Sign Up</h1>
-                <FormGroup>
-                    <ControlLabel>Username</ControlLabel>
-                    <FormControl name="name" />
-                </FormGroup>
+                <h1>Login</h1>
                 <FormGroup>
                     <ControlLabel>Email</ControlLabel>
                     <FormControl name="email" type="email" />
