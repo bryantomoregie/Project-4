@@ -4,10 +4,13 @@ import './App.css';
 import 'rsuite/dist/styles/rsuite-default.css';
 import { FlexboxGrid } from 'rsuite'
 import { Container, Header, Content, Footer } from 'rsuite';
-import SignUp from './components/SignUp'
-import { Login } from './components/Login'
+import SignUp from './components/SignUp';
+import { Login } from './components/Login';
+import Homepage  from './components/Homepage'
+import { BrowserRouter, Route } from 'react-router-dom'
 
 class App extends Component {
+
 
   state = {
     shoes: []
@@ -33,6 +36,8 @@ class App extends Component {
                         <SignUp handleSignup={this.handleSignup}/>
                         <hr></hr>
                         <Login />
+                        <hr></hr>
+                        <Homepage />
                       </FlexboxGrid.Item>
                       <FlexboxGrid.Item colspan={5}></FlexboxGrid.Item>
                   </FlexboxGrid>
