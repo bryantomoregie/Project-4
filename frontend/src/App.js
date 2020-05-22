@@ -10,7 +10,7 @@ import { Login } from './components/Login'
 class App extends Component {
 
   state = {
-    shoes: [],
+    shoes: []
   }
 
   componentDidMount(){
@@ -22,7 +22,6 @@ class App extends Component {
   }
 
   render(){
-    console.log(this.state.shoes)
     return (
         <div className="App">
             <Container>
@@ -31,7 +30,7 @@ class App extends Component {
                   <FlexboxGrid justify="center">
                       <FlexboxGrid.Item colspan={5}></FlexboxGrid.Item>
                       <FlexboxGrid.Item colspan={5}>
-                        <SignUp />
+                        <SignUp handleSignup={this.handleSignup}/>
                         <hr></hr>
                         <Login />
                       </FlexboxGrid.Item>
