@@ -1,25 +1,32 @@
 
 
 
-class UsersController < ApplicationControllers
-
+class UsersController < ApplicationController
     
+    def index 
+        user = User.all
+    
+        render(json: user)
+    
+     end 
+    
+
     def create 
 
         user = User.create({
             first_name: params[:first_name],
             last_name: params[:last_name],
-            password_digest: params[:password],
+            password: params[:password],
             email: params[:email]
         })
 
-        render (json: user)
+        render(json: user)
     end
 
     def show    
         user = User.find(params[:id])
 
-        render (json: user)
+        render(json: user)
     end 
 
     def update 
@@ -27,10 +34,10 @@ class UsersController < ApplicationControllers
         user = User.update({
             first_name: params[:first_name],
             last_name: params[:last_name],
-            password_digest: params[:password],
+            password: params[:password],
             email: params[:email]
         })
-        render (json: user)
+        render(json: user)
     end 
 
     def destroy 
