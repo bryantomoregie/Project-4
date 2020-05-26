@@ -8,7 +8,7 @@ import { Login } from './components/Login';
 import { Homepage } from './components/Homepage';
 import { BrowserRouter, Route, useHistory } from 'react-router-dom';
 import { Createshoe } from './components/Createshoe'
-import { Mycloset } from './components/Mycloset'
+import  Mycloset  from './containers/Mycloset'
 
 
 function App(props) {

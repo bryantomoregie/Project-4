@@ -31,7 +31,7 @@ export function Homepage(){
                     <br></br>
                     <h2>Do you want to browse shoes?</h2>
                     <ButtonToolbar>
-                        <Button onClick={ () => history.push('/shoecontainer')} size="lg" appearance="subtle" active>Browse shoes</Button>
+                        <Button onClick={ () => history.push('/all')} size="lg" appearance="subtle" active>Browse shoes</Button>
                     </ButtonToolbar>
                 </div>
     
