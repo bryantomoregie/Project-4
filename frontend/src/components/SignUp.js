@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Form, FormGroup, FormControl, ControlLabel, Button, ButtonToolbar, FlexboxGrid, Panel } from 'rsuite';
 
 export default function SignUp(props) {
@@ -20,19 +20,20 @@ export default function SignUp(props) {
           body: JSON.stringify(newUser)
         })
         .then(resp => resp.json())
-        .then(data => console.log(data))
+        .then(data => setForm(initialValues))
     }
-    
+
+    useEffect(() => { console.log('running') }, [])
+  
     return(
         <FlexboxGrid align="middle" justify="center">
             <FlexboxGrid.Item colspan={12}>
                 <Panel header={<h3>Sign Up</h3>} bordered>
-                    <Form fluid>
+                    <Form formValue={form} fluid>
                         <FormGroup>
                             <ControlLabel>First Name</ControlLabel>
                             <FormControl 
-                                name='firstName' 
-                                formValue={form.firstName} 
+                                name='firstName'  
                                 onChange={e => setValue('firstName', e)}
                             />
                         </FormGroup>
@@ -40,15 +41,13 @@ export default function SignUp(props) {
                             <ControlLabel>Last Name</ControlLabel>
                             <FormControl 
                                 name="lastName"
-                                formValue={form.lastName} 
                                 onChange={e => setValue('lastName', e)}
                             />
                         </FormGroup>
                         <FormGroup>
                             <ControlLabel>Email</ControlLabel>
                             <FormControl 
-                                name="email" 
-                                formValue={form.email} 
+                                name="email"  
                                 onChange={e => setValue('email', e)}   
                             />
                         </FormGroup>
@@ -57,7 +56,6 @@ export default function SignUp(props) {
                             <FormControl 
                                 name="password"
                                 type="password" 
-                                formValue={form.password} 
                                 onChange={e => setValue('password', e)}
                             />
                         </FormGroup>
