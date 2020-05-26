@@ -21,7 +21,7 @@ function App(props) {
 				<Route exact path="/login" component={Login} />
 				<Route exact path="/signup" component={SignUp} />
 				<Route exact path="/createshoe" component={Createshoe} />
-				<Route exact path="/mycloset" component={Mycloset} />
+				<Route exact path="/mycloset/:id" component={Mycloset} />
 			</BrowserRouter>  
 		</div>
     );

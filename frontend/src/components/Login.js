@@ -29,7 +29,7 @@ import { useHistory } from 'react-router'
         })
         let {success, id} = await response.json()
         if(success){
-            history.push(`/users/${id}`)
+            history.push(`/mycloset/${id}`)
         }
     }
 

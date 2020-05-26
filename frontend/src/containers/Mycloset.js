@@ -15,8 +15,9 @@ export default class Mycloset extends Component {
     componentDidMount() {
       fetch('http://localhost:3000/shoes')
       .then(resp => resp.json())
-      .then(shoes => {
-      this.setState = ({
+      .then(shoes =>
+        // userShoes = shoes.map(shoe => shoe.user_id === user.id) 
+      {this.setState({
         userShoes: shoes 
       })
       console.log(shoes)
@@ -30,10 +31,11 @@ export default class Mycloset extends Component {
         <Table
           virtualized
           height={400}
-          // data={fakeLargeData}
-          // onRowClick={data => {
-          //   console.log(data);
-          // }}
+           data={this.state.userShoes}
+           
+           onRowClick={data => {
+            console.log(data);
+           }}
         >
           <Column width={70} align="center" fixed>
             <HeaderCell>Image</HeaderCell>
