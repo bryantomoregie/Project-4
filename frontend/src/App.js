@@ -56,6 +56,7 @@ class App extends Component {
             <Route path={"/signup"} component={SignUp} />
             <Route path={"/createshoe"} component={Createshoe} />
             <Route path={"/mycloset"} component={Mycloset} />
+            <Route path={"/shoecontainer"} component={ShoeContainer} />
         </div>
       </BrowserRouter>  
     );

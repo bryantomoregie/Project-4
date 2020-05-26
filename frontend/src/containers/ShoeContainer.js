@@ -1,10 +1,13 @@
+
 import React, { Component } from 'react';
 import { ShoeCard } from '../components/ShoeCard';
 import { Row } from 'rsuite';
 
 
 
+
 export default class ShoeContainer extends Component {
+    
     state = {
         shoeList: []
     }
