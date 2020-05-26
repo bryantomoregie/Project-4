@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Button, IconButton, ButtonGroup, ButtonToolbar } from 'rsuite';
 import { useHistory } from 'react-router'
-import { Form, FormGroup, FormControl, ControlLabel, HelpBlock } from 'rsuite';
+import { Form, FormGroup, FormControl, ControlLabel, FlexboxGrid, Panel, Button, ButtonToolbar } from 'rsuite';
 
 export function Createshoe() {
 
@@ -30,61 +29,59 @@ export function Createshoe() {
     
     
     return(
-        <div>
-        <h1>Add Shoe</h1>
-            <Form fluid>
-                <FormGroup>
-                    <ControlLabel>Model</ControlLabel>
-                    <FormControl  
-                        name="model" 
-                        formValue={form.model} 
-                        onChange={e => setValue('model', e)}
-                    />
-                    <HelpBlock>Required</HelpBlock>
-                </FormGroup>
-                <FormGroup>
-                    <ControlLabel>Size</ControlLabel>
-                    <FormControl 
-                        name="size" 
-                        formValue={form.size} 
-                        onChange={e => setValue('size', e)}
-                    />
-                    <HelpBlock>Required</HelpBlock>
-                </FormGroup>
-                <FormGroup>
-                    <ControlLabel>Brand</ControlLabel>
-                    <FormControl 
-                        name="brand" 
-                        formValue={form.brand} 
-                        onChange={e => setValue('brand', e)}
-                    />
-                <HelpBlock>Required</HelpBlock>
-                </FormGroup>
-                <FormGroup>
-                    <ControlLabel>Price</ControlLabel>
-                    <FormControl  
-                        name="price" 
-                        formValue={form.price} 
-                        onChange={e => setValue('price', e)}
-                    />
-                    <HelpBlock>Required</HelpBlock>
-                </FormGroup>
-                <FormGroup>
-                    <ControlLabel>Image</ControlLabel>
-                    <FormControl  
-                        name="image" 
-                        formValue={form.image} 
-                        onChange={e => setValue('image', e)}
-                    />
-                    <HelpBlock>Required</HelpBlock>
-                </FormGroup>
-                <FormGroup>
-                    <ButtonToolbar>
-                        <Button appearance="primary" onClick={() => handleClick(form)}>Submit</Button>
-                        <Button appearance="default">Cancel</Button>
-                    </ButtonToolbar>
-                </FormGroup>
-            </Form>
-            </div>
+        <FlexboxGrid justify="center">
+            <FlexboxGrid.Item colspan={12}>
+                <Panel header={<h3>Create Listing</h3>} bordered>
+                    <Form fluid>
+                        <FormGroup>
+                            <ControlLabel>Model</ControlLabel>
+                            <FormControl  
+                                name="model" 
+                                formValue={form.model} 
+                                onChange={e => setValue('model', e)}
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>Size</ControlLabel>
+                            <FormControl 
+                                name="size" 
+                                formValue={form.size} 
+                                onChange={e => setValue('size', e)}
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>Brand</ControlLabel>
+                            <FormControl 
+                                name="brand" 
+                                formValue={form.brand} 
+                                onChange={e => setValue('brand', e)}
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>Price</ControlLabel>
+                            <FormControl  
+                                name="price" 
+                                formValue={form.price} 
+                                onChange={e => setValue('price', e)}
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>Image</ControlLabel>
+                            <FormControl  
+                                name="image" 
+                                formValue={form.image} 
+                                onChange={e => setValue('image', e)}
+                            />
+                        </FormGroup>
+                        <FormGroup>
+                            <ButtonToolbar>
+                                <Button appearance="primary" onClick={() => handleClick(form)}>Submit</Button>
+                                <Button appearance="default">Cancel</Button>
+                            </ButtonToolbar>
+                        </FormGroup>
+                    </Form>
+                </Panel>
+            </FlexboxGrid.Item>
+        </FlexboxGrid>
         )
 }
