@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Form, FormGroup, FormControl, ControlLabel, Button, ButtonToolbar } from 'rsuite';
-import { useHistory } from 'react-router'
+import { useHistory } from 'react-router';
+import { Container, Header, Content, Footer } from 'rsuite';
+import { FlexboxGrid } from 'rsuite'
+
 
 
  export function Login(props){
@@ -35,21 +38,43 @@ import { useHistory } from 'react-router'
 
     return(
         <Form >
-            <h1>Login</h1>
-            <FormGroup>
-                <ControlLabel>Email</ControlLabel>
-                 <FormControl name="email" type="email" value={user.email} onChange={e => changeUser({...user,email: e})} />
-                </FormGroup>
-                <FormGroup>
-                    <ControlLabel>Password</ControlLabel>
-                    <FormControl name="password" type="password" value={user.password} onChange={e => changeUser({...user,password: e})}/>
-                </FormGroup>
-                <FormGroup>
-                <ButtonToolbar>
-                    <Button appearance="primary" onClick={(e) => handleSubmit(e)}>Submit</Button>
-                <Button appearance="default">Cancel</Button>
-                </ButtonToolbar>
-            </FormGroup>
+         
+            <div className="App">
+            
+            <Container>
+                <Content>
+                  <FlexboxGrid justify="center">
+                      
+                    <FlexboxGrid.Item colspan={5}>
+                      <h1>Login</h1>
+                        <hr></hr>
+                      
+                      <FormGroup>
+                        <ControlLabel>Email</ControlLabel>
+                        <FormControl name="email" type="email" value={user.email} onChange={e => changeUser({...user,email: e})} />
+                      </FormGroup>
+                      
+                      <FormGroup>
+                        <ControlLabel>Password</ControlLabel>
+                        <FormControl name="password" type="password" value={user.password} onChange={e => changeUser({...user,password: e})}/>
+                      </FormGroup>
+                
+                      <FormGroup>
+                       <ButtonToolbar>
+                         <Button appearance="primary" onClick={(e) => handleSubmit(e)}>Submit</Button>
+                         <Button appearance="default">Cancel</Button>
+                       </ButtonToolbar>
+                      </FormGroup>
+                        <hr></hr>
+                    </FlexboxGrid.Item>
+                      
+                  </FlexboxGrid>
+                </Content>
+           
+            </Container>
+        
+        </div>
+            
         </Form>
     )
     

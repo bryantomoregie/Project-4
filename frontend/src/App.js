@@ -3,11 +3,13 @@ import logo from './logo.svg';
 import './App.css';
 import 'rsuite/dist/styles/rsuite-default.css';
 import { FlexboxGrid } from 'rsuite'
-import { Container, Header, Content, Footer } from 'rsuite';
 import SignUp from './components/SignUp';
 import { Login } from './components/Login';
-import Homepage  from './components/Homepage'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Homepage } from './components/Homepage';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { Createshoe } from './components/Createshoe'
+import { Mycloset } from './components/Mycloset'
+import { Navigationbar } from './components/Navigationbar'
 
 class App extends Component {
 
@@ -26,25 +28,16 @@ class App extends Component {
 
   render(){
     return (
+      <BrowserRouter>
         <div className="App">
-            <Container>
-                <Header></Header>
-                <Content>
-                  <FlexboxGrid justify="center">
-                      <FlexboxGrid.Item colspan={5}></FlexboxGrid.Item>
-                      <FlexboxGrid.Item colspan={5}>
-                        <SignUp handleSignup={this.handleSignup}/>
-                        <hr></hr>
-                        <Login />
-                        <hr></hr>
-                        <Homepage />
-                      </FlexboxGrid.Item>
-                      <FlexboxGrid.Item colspan={5}></FlexboxGrid.Item>
-                  </FlexboxGrid>
-                </Content>
-                <Footer></Footer>
-            </Container>
+        <Route path="/homepage" component={Homepage} />
+        <Route path="/login" component={Login} />
+        <Route path={"/signup"} component={SignUp} />
+        <Route path={"/createshoe"} component={Createshoe} />
+        <Route path={"/mycloset"} component={Mycloset} />
+        <Route path={"/navigationbar"} component={Navigationbar}/>
         </div>
+      </BrowserRouter>  
     );
   }
 }
