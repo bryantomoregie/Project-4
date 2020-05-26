@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import 'rsuite/dist/styles/rsuite-default.css';
+import { Navbar, Nav, Container, Header, Content, Footer } from 'rsuite';
+import ShoeContainer from './containers/ShoeContainer'
 import { FlexboxGrid } from 'rsuite'
 import SignUp from './components/SignUp';
 import { Login } from './components/Login';
@@ -13,9 +14,11 @@ import { Navigationbar } from './components/Navigationbar'
 
 class App extends Component {
 
-
   state = {
-    shoes: []
+	shoes: [],
+	styles: {
+		marginBottom: '50px'
+	}
   }
 
   componentDidMount(){
@@ -30,12 +33,28 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-        <Route path="/homepage" component={Homepage} />
-        <Route path="/login" component={Login} />
-        <Route path={"/signup"} component={SignUp} />
-        <Route path={"/createshoe"} component={Createshoe} />
-        <Route path={"/mycloset"} component={Mycloset} />
-        <Route path={"/navigationbar"} component={Navigationbar}/>
+            <Container>
+            	<Header style={this.state.styles}>
+                	<Navbar appearance="inverse">
+                  		<Navbar.Body>
+							<Nav>
+								<Nav.Item><b>Home</b></Nav.Item>
+								<Nav.Item>Browse</Nav.Item>
+							</Nav>
+							<Nav pullRight>
+								<Nav.Item>Login</Nav.Item>
+								<Nav.Item>Sign Up</Nav.Item>
+							</Nav>
+                  		</Navbar.Body>
+                	</Navbar>
+              	</Header>
+              	<Content></Content>
+            </Container>
+            <Route path="/homepage" component={Homepage} />
+            <Route path="/login" component={Login} />
+            <Route path={"/signup"} component={SignUp} />
+            <Route path={"/createshoe"} component={Createshoe} />
+            <Route path={"/mycloset"} component={Mycloset} />
         </div>
       </BrowserRouter>  
     );

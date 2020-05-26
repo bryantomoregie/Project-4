@@ -10,20 +10,19 @@ class ShoesController < ApplicationController
  end 
 
  def create 
-   # if(self.current_user != nil)
+   if(self.current_user != nil)
       shoes = Shoe.create({
         model: params[:model],
         size: params[:size],
         brand: params[:brand],
         price: params[:price],
         image: params[:image],
-        user_id: 1
-      #   user_id: self.current_user.id
+        user_id: self.current_user.id
       })
       render(json: shoes) 
-   # else
-   #    render json: {error: true, message:'Invalid Login'} 
-   # end   
+   else
+      render json: {error: true, message:'Invalid Login'} 
+   end   
  end
 
  def show
@@ -34,8 +33,8 @@ class ShoesController < ApplicationController
  end 
 
  def update 
-    shoes = Shoes.find(params[:id])
-    shoes = Shoes.update({
+    shoes = Shoe.find(params[:id])
+    shoes = Shoe.update({
         model: params[:model],
         size: params[:size],
         brand: params[:brand],

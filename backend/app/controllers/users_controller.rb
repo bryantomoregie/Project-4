@@ -6,15 +6,19 @@ class UsersController < ApplicationController
         render(json: users)
     end
     
-    def create 
-        user = User.create({
-            first_name: params[:firstName],
-            last_name: params[:lastName],
-            password_digest: params[:password]
-            email: params[:email]
-        })
+    def create
+        if User.find_by(email: params[:email]) == nil
+            user = User.create({
+                first_name: params[:firstName],
+                last_name: params[:lastName],
+                password_digest: params[:password],
+                email: params[:email]
+            })
 
-        render(json: user)
+            render(json: user)
+        else
+            render(json: ["Email already exists."])
+        end
     end
 
     def show    
@@ -28,7 +32,7 @@ class UsersController < ApplicationController
         user.update({
             first_name: params[:first_name],
             last_name: params[:last_name],
-            password: params[:password],
+            password_digest: params[:password],
             email: params[:email]
         })
         render(json: user)
