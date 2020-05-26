@@ -1,8 +1,13 @@
-import React, { Component } from 'react'
-import { ShoeCard } from '../components/ShoeCard'
-import { Row } from 'rsuite'
+
+import React, { Component } from 'react';
+import { ShoeCard } from '../components/ShoeCard';
+import { Row } from 'rsuite';
+
+
+
 
 export default class ShoeContainer extends Component {
+    
     state = {
         shoeList: []
     }
@@ -21,7 +26,9 @@ export default class ShoeContainer extends Component {
         return(
             <Row>
                 {this.state.shoeList.map(shoe => <ShoeCard shoe={shoe} key={shoe.id}/>)}
+              
             </Row>
+           
         )
     }
 }
