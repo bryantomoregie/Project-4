@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, FormGroup, FormControl, ControlLabel, Button, ButtonToolbar } from 'rsuite';
+import { Form, FormGroup, FormControl, ControlLabel, Button, ButtonToolbar, FlexboxGrid, Panel } from 'rsuite';
 import { useHistory } from 'react-router'
 
 
@@ -8,13 +8,12 @@ import { useHistory } from 'react-router'
     let history = useHistory()
     
 
-    const [user, changeUser ] = useState({
+    const [user, setUser ] = useState({
         email: '',
         password: ''
     })
 
     async function handleSubmit(e){
-        
         e.preventDefault()
         let response = await fetch('http://localhost:3000/login',{
             credentials: 'include',
@@ -34,23 +33,27 @@ import { useHistory } from 'react-router'
     }
 
     return(
-        <Form >
-            <h1>Login</h1>
-            <FormGroup>
-                <ControlLabel>Email</ControlLabel>
-                 <FormControl name="email" type="email" value={user.email} onChange={e => changeUser({...user,email: e})} />
-                </FormGroup>
-                <FormGroup>
-                    <ControlLabel>Password</ControlLabel>
-                    <FormControl name="password" type="password" value={user.password} onChange={e => changeUser({...user,password: e})}/>
-                </FormGroup>
-                <FormGroup>
-                <ButtonToolbar>
-                    <Button appearance="primary" onClick={(e) => handleSubmit(e)}>Submit</Button>
-                <Button appearance="default">Cancel</Button>
-                </ButtonToolbar>
-            </FormGroup>
-        </Form>
+        <FlexboxGrid justify="center">
+            <FlexboxGrid.Item colspan={12}>
+                <Panel header={<h3>Login</h3>} bordered>
+                    <Form fluid>
+                        <FormGroup>
+                            <ControlLabel>Email</ControlLabel>
+                            <FormControl name="email" type="email" value={user.email} onChange={e => setUser({ ...user, email: e })}/>
+                        </FormGroup>
+                        <FormGroup>
+                            <ControlLabel>Password</ControlLabel>
+                            <FormControl name="password" type="password" value={user.password} onChange={e => setUser({ ...user, password: e })}/>
+                        </FormGroup>
+                        <FormGroup>
+                            <ButtonToolbar>
+                                <Button appearance="primary" onClick={e => handleSubmit(e)}>Sign in</Button>
+                            </ButtonToolbar>
+                        </FormGroup>
+                    </Form>
+                </Panel>
+            </FlexboxGrid.Item>
+        </FlexboxGrid>
     )
     
 }

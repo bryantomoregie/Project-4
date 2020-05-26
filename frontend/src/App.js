@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import 'rsuite/dist/styles/rsuite-default.css';
-import { FlexboxGrid } from 'rsuite'
-import { Container, Header, Content, Footer } from 'rsuite';
+import { Navbar, Nav, Container, Header, Content, Footer } from 'rsuite';
 import SignUp from './components/SignUp';
 import { Login } from './components/Login';
 import Homepage  from './components/Homepage'
 import { BrowserRouter, Route } from 'react-router-dom'
+import ShoeContainer from './containers/ShoeContainer'
+import { CreateShoe } from './components/CreateShoe'
 
 class App extends Component {
 
-
   state = {
-    shoes: []
+	shoes: [],
+	styles: {
+		marginBottom: '50px'
+	}
   }
 
   componentDidMount(){
@@ -28,21 +30,26 @@ class App extends Component {
     return (
         <div className="App">
             <Container>
-                <Header></Header>
-                <Content>
-                  <FlexboxGrid justify="center">
-                      <FlexboxGrid.Item colspan={5}></FlexboxGrid.Item>
-                      <FlexboxGrid.Item colspan={5}>
-                        <SignUp handleSignup={this.handleSignup}/>
-                        <hr></hr>
-                        <Login />
-                        <hr></hr>
-                        <Homepage />
-                      </FlexboxGrid.Item>
-                      <FlexboxGrid.Item colspan={5}></FlexboxGrid.Item>
-                  </FlexboxGrid>
-                </Content>
-                <Footer></Footer>
+            	<Header style={this.state.styles}>
+                	<Navbar appearance="inverse">
+                  		<Navbar.Body>
+							<Nav>
+								<Nav.Item><b>Home</b></Nav.Item>
+								<Nav.Item>Browse</Nav.Item>
+							</Nav>
+							<Nav pullRight>
+								<Nav.Item>Login</Nav.Item>
+								<Nav.Item>Sign Up</Nav.Item>
+							</Nav>
+                  		</Navbar.Body>
+                	</Navbar>
+              	</Header>
+              	<Content>
+					<ShoeContainer />  
+					{/* <Login /> */}
+				  	{/* <SignUp /> */}
+				</Content>
+              	{/* <Footer>Footer</Footer> */}
             </Container>
         </div>
     );

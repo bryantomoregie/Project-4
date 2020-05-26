@@ -11,7 +11,7 @@ class ShoesController < ApplicationController
 
  def create 
    if(self.current_user != nil)
-      shoes = Shoes.create({
+      shoes = Shoe.create({
         model: params[:model],
         size: params[:size],
         brand: params[:brand],
@@ -31,8 +31,8 @@ class ShoesController < ApplicationController
  end 
 
  def update 
-    shoes = Shoes.find(params[:id])
-    shoes = Shoes.update({
+    shoes = Shoe.find(params[:id])
+    shoes = Shoe.update({
         model: params[:model],
         size: params[:size],
         brand: params[:brand],
