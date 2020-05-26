@@ -8,15 +8,14 @@ import { useHistory } from 'react-router'
 
     let history = useHistory()
     
-
-    const [user, setUser ] = useState({
+    const [ user, setUser ] = useState({
         email: '',
         password: ''
     })
 
     async function handleSubmit(e){
         e.preventDefault()
-        let response = await fetch('http://localhost:3000/login',{
+        let response = await fetch('http://localhost:3000/login', {
             credentials: 'include',
             method: 'POST',
             headers: {
@@ -29,7 +28,9 @@ import { useHistory } from 'react-router'
         })
         let {success, id} = await response.json()
         if(success){
-            history.push(`/users/${id}`)
+            // history.push(`/users/${id}`)
+            localStorage.id = id
+            props.setUser(id)
         }
     }
 
@@ -49,6 +50,7 @@ import { useHistory } from 'react-router'
                         <FormGroup>
                             <ButtonToolbar>
                                 <Button appearance="primary" onClick={e => handleSubmit(e)}>Sign in</Button>
+                                <Button appearance="default" onClick={() => history.push('/')}>Cancel</Button>
                             </ButtonToolbar>
                         </FormGroup>
                     </Form>

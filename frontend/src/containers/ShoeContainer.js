@@ -1,15 +1,13 @@
-
 import React, { Component } from 'react';
 import { ShoeCard } from '../components/ShoeCard';
-import { Row } from 'rsuite';
-
-
+import { Row, Form, FormGroup, FormControl, InputPicker } from 'rsuite';
 
 
 export default class ShoeContainer extends Component {
     
     state = {
-        shoeList: []
+        shoeList: [],
+        filteredShoes: null
     }
 
     componentDidMount() {
@@ -22,13 +20,32 @@ export default class ShoeContainer extends Component {
         })
     }
 
+    handleSearch = (query) => {
+        let filteredShoeList = this.state.shoeList.filter(shoe => shoe.model.toLowerCase().includes(query.toLowerCase()))
+        console.log(filteredShoeList)
+        this.setState({
+            filteredShoes: filteredShoeList
+        })
+    }
+
     render() {
+
+        let shoes = this.state.filteredShoes == null ? this.state.shoeList : this.state.filteredShoes
+
         return(
-            <Row>
-                {this.state.shoeList.map(shoe => <ShoeCard shoe={shoe} key={shoe.id}/>)}
-              
-            </Row>
-           
+            <div>
+                <Row>
+                    <Form fluid>
+                        <FormGroup>
+                            <FormControl placeholder="Search..." name="search" onChange={(e) => this.handleSearch(e)}/>
+                        </FormGroup>
+                    </Form>
+                </Row>
+                <br />
+                <Row>
+                    {shoes.map(shoe => <ShoeCard shoe={shoe} key={shoe.id}/>)}
+                </Row>
+            </div>
         )
     }
 }

@@ -76,7 +76,7 @@ export function Createshoe() {
                         <FormGroup>
                             <ButtonToolbar>
                                 <Button appearance="primary" onClick={() => handleClick(form)}>Submit</Button>
-                                <Button appearance="default">Cancel</Button>
+                                <Button appearance="default" onClick={() => history.push('/')}>Cancel</Button>
                             </ButtonToolbar>
                         </FormGroup>
                     </Form>

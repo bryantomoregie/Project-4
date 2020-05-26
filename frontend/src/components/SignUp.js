@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Form, FormGroup, FormControl, ControlLabel, Button, ButtonToolbar, FlexboxGrid, Panel } from 'rsuite';
+import { useHistory } from 'react-router-dom';
 
 export default function SignUp(props) {
+
+    let history = useHistory()
 
     const initialValues = { firstName: '', lastName: '', email: '', password: '' }
 
@@ -62,7 +65,7 @@ export default function SignUp(props) {
                         <FormGroup>
                             <ButtonToolbar>
                                 <Button appearance="primary" onClick={() => handleSignup(form)}>Submit</Button>
-                                <Button appearance="default">Cancel</Button>
+                                <Button appearance="default" onClick={() => history.push('/')}>Cancel</Button>
                             </ButtonToolbar>
                         </FormGroup>
                     </Form>
