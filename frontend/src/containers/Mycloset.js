@@ -16,8 +16,10 @@ export default class Mycloset extends Component {
       fetch('http://localhost:3000/shoes')
       .then(resp => resp.json())
       .then(shoes => {
-      this.setState = ({
-        userShoes: shoes 
+       const usersShoes = shoes.filter(shoe => shoe.user_id === parseInt(localStorage.id))
+       console.log(usersShoes)
+      this.setState({
+        userShoes: usersShoes
       })
       console.log(shoes)
     }
@@ -30,7 +32,7 @@ export default class Mycloset extends Component {
         <Table
           virtualized
           height={400}
-          // data={fakeLargeData}
+          data={this.state.userShoes}
           // onRowClick={data => {
           //   console.log(data);
           // }}
