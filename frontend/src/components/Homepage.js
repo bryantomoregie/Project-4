@@ -1,16 +1,63 @@
 import React, { Component } from 'react';
 import { Button, IconButton, ButtonGroup, ButtonToolbar } from 'rsuite';
+import { useHistory } from 'react-router';
+import { Divider } from 'rsuite';
+import { FlexboxGrid } from 'rsuite';
 
-export default class Homepage extends Component {
-    render(){
+
+export function Homepage(){
+    
+    let history = useHistory()
+ 
         return(
-            <div>
-                <h2>Do you want to browse shoes?</h2>
-                <ButtonToolbar>
-                    <Button size="lg" appearance="subtle" active>Browse shoes</Button>
-                </ButtonToolbar>
-            </div>
+            
+            <FlexboxGrid justify="space-around">
+                <div colspan={8}>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <h2>Do you want to browse shoes?</h2>
+                    <ButtonToolbar>
+                        <Button size="lg" appearance="subtle" active>Browse shoes</Button>
+                    </ButtonToolbar>
+                </div>
+    
+                <div colspan={8}>
+                <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <h2>Do you want to sell shoes?</h2>
+                    <ButtonToolbar >
+                        <Button onClick={ () => history.push('/createshoe')} size="lg" appearance="subtle" active>Sell shoes</Button>
+                    </ButtonToolbar>
+                </div>
+            </FlexboxGrid>
         )
-    }
 }
 

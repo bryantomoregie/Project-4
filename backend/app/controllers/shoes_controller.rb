@@ -15,6 +15,8 @@ class ShoesController < ApplicationController
         model: params[:model],
         size: params[:size],
         brand: params[:brand],
+        price: params[:price],
+        image: params[:image],
         user_id: self.current_user.id
       })
       render(json: shoes) 
