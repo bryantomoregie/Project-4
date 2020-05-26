@@ -3,14 +3,12 @@ import './App.css';
 import 'rsuite/dist/styles/rsuite-default.css';
 import { Navbar, Nav, Container, Header, Content, Footer } from 'rsuite';
 import ShoeContainer from './containers/ShoeContainer'
-import { FlexboxGrid } from 'rsuite'
 import SignUp from './components/SignUp';
 import { Login } from './components/Login';
 import { Homepage } from './components/Homepage';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Createshoe } from './components/Createshoe'
 import { Mycloset } from './components/Mycloset'
-import { Navigationbar } from './components/Navigationbar'
 
 class App extends Component {
 
@@ -48,7 +46,9 @@ class App extends Component {
                   		</Navbar.Body>
                 	</Navbar>
               	</Header>
-              	<Content></Content>
+              	<Content>
+					
+				</Content>
             </Container>
             <Route path="/homepage" component={Homepage} />
             <Route path="/login" component={Login} />

@@ -78,10 +78,6 @@ export function Createshoe() {
                     />
                     <HelpBlock>Required</HelpBlock>
                 </FormGroup>
-                {/* <FormGroup>
-                    <ControlLabel>Description</ControlLabel>
-                    <FormControl rows={5} name="textarea" componentClass="textarea" />
-                </FormGroup> */}
                 <FormGroup>
                     <ButtonToolbar>
                         <Button appearance="primary" onClick={() => handleClick(form)}>Submit</Button>
