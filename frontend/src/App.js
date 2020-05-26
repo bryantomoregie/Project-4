@@ -7,8 +7,9 @@ import SignUp from './components/SignUp';
 import { Login } from './components/Login';
 import { Homepage } from './components/Homepage';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { Createshoe } from './components/Createshoe'
-import { Mycloset } from './components/Mycloset'
+import { Createshoe } from './components/Createshoe';
+import  Mycloset  from './containers/Mycloset';
+
 
 class App extends Component {
 
