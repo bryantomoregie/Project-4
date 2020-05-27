@@ -14,7 +14,10 @@ export default class Mycloset extends Component {
 
 
     componentDidMount() {
-      fetch('http://localhost:3000/shoes')
+      fetch('http://localhost:3000/shoes',{
+        credentials: 'include',
+        method: 'GET'
+      })
       .then(resp => resp.json())
       .then(shoes => {
        const usersShoes = shoes.filter(shoe => shoe.user_id === parseInt(localStorage.id))

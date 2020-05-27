@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router'
+import { useHistory } from 'react-router';
+import { Mycloset } from '../containers/Mycloset';
 import { Form, FormGroup, FormControl, ControlLabel, FlexboxGrid, Panel, Button, ButtonToolbar } from 'rsuite';
 
 export function Createshoe() {
@@ -15,16 +16,29 @@ export function Createshoe() {
     }
 
     let handleClick = (newShoe) => {
+        console.log(newShoe.model)
+        console.log(newShoe.user_id)
         fetch('http://localhost:3000/shoes', {
+          credentials: 'include',
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify(newShoe)
+          body: JSON.stringify({
+              model: newShoe.model,
+              size: newShoe.size,
+              brand: newShoe.brand,
+              price: newShoe.price,
+              image: newShoe.image,
+              user_id: localStorage.id
+          })
         })
         .then(resp => resp.json())
-        .then(data => setForm(initialValues));
-        history.push('/users/1')
+        // .then(data => setForm(initialValues)
+        .then(data => console.log(data)
+        );
+    
+        history.push('/mycloset')
     }
     
     
