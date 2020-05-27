@@ -35,8 +35,8 @@ function App(props) {
 				<Route exact path="/all" component={ShoeContainer} />
 				<Route exact path="/login" component={() => <Login setCurrentUser={setCurrentUser}/>} />
 				<Route exact path="/signup" component={SignUp} />
-				<Route exact path="/createshoe" component={Createshoe} />
-				<Route exact path="/mycloset" component={Mycloset} />
+				<Route exact path="/createshoe" component={() => <Createshoe user={user}/>} />
+				<Route exact path="/mycloset" component={() => <Mycloset user={user}/>} />
 			</BrowserRouter>  
 		</div>
     );
