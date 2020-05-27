@@ -9,34 +9,35 @@ import { ClosetShoeCard } from '../components/ClosetShoeCard'
 export default class Mycloset extends Component {
 
     state = {
-      userShoes: []
-    }
+		userShoes: []
+	}
 
 
     componentDidMount() {
-      fetch('http://localhost:3000/shoes',{
-        credentials: 'include',
-        method: 'GET'
-      })
-      .then(resp => resp.json())
-      .then(shoes => {
-       const usersShoes = shoes.filter(shoe => shoe.user_id === (this.props.user.id))
-       console.log(usersShoes)
-      this.setState({
-        userShoes: usersShoes
-      })
-      console.log(shoes)
-    }
+      	fetch('http://localhost:3000/shoes',{
+        	credentials: 'include',
+        	method: 'GET'
+      	})
+      	.then(resp => resp.json())
+      	.then(shoes => {
+
+			const usersShoes = shoes.filter(shoe => shoe.user_id === this.props.user?.id)
+
+			this.setState({
+	    	    userShoes: usersShoes
+    		})
+    	}
     )}
 
     render(){
-      let userShoes = this.state.userShoes
-    return(
-      <Row>
-        {userShoes.map(shoe => <ClosetShoeCard shoe={shoe} key={shoe.id}/>)}
-    
-      </Row>
-    )
+      	let userShoes = this.state.userShoes
+		
+	  	return(
+      		<Row>
+        		{userShoes.map(shoe => <ClosetShoeCard shoe={shoe} key={shoe.id}/>)}
+	      	</Row>
+    	)
 
-}
+	}
+
 }

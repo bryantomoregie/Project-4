@@ -5,7 +5,7 @@ import { Divider } from 'rsuite';
 import { FlexboxGrid } from 'rsuite';
 
 
-export function Homepage(){
+export function Homepage(props){
     
     let history = useHistory()
  
@@ -54,7 +54,7 @@ export function Homepage(){
                     <br></br>
                     <h2>Do you want to sell shoes?</h2>
                     <ButtonToolbar >
-                        <Button onClick={ () => history.push('/createshoe')} size="lg" appearance="subtle" active>Sell shoes</Button>
+                        <Button onClick={ props.user ? () => history.push('/createshoe') : () => history.push('/login') } size="lg" appearance="subtle" active>Sell shoes</Button>
                     </ButtonToolbar>
                 </div>
             </FlexboxGrid>
