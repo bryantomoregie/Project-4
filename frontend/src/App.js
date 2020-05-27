@@ -9,6 +9,7 @@ import { Homepage } from './components/Homepage';
 import { BrowserRouter, Route, useHistory } from 'react-router-dom';
 import { Createshoe } from './components/Createshoe'
 import  Mycloset  from './containers/Mycloset'
+import ShoeDetails from './components/ShoeDetails'
 
 function App(props) {
 	
@@ -30,13 +31,14 @@ function App(props) {
     return (
         <div className="App">
 			<BrowserRouter>
-				<MainContainer user={user} setCurrentUser={setCurrentUser}/>/>
-				<Route exact path="/" component={Homepage} />
+				<MainContainer user={user} setCurrentUser={setCurrentUser} />
+				<Route exact path="/" component={() => <Homepage user={user}/>} />
 				<Route exact path="/all" component={ShoeContainer} />
 				<Route exact path="/login" component={() => <Login setCurrentUser={setCurrentUser}/>} />
 				<Route exact path="/signup" component={SignUp} />
 				<Route exact path="/createshoe" component={() => <Createshoe user={user}/>} />
 				<Route exact path="/mycloset" component={() => <Mycloset user={user}/>} />
+				<Route exact path="/shoes/:id" component={() => <ShoeDetails />} />
 			</BrowserRouter>  
 		</div>
     );

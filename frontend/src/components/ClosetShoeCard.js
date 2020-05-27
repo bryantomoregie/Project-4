@@ -5,8 +5,8 @@ export function ClosetShoeCard(props) {
 
 return(
   <Col md={6} sm={12}>
-    <Panel shaded bordered bodyFill style={{ display: 'inline-block', width: '100%' }}>
-      <img src={props.shoe.image} height="240" />
+    <Panel shaded>
+      <img src={props.shoe.image} style={{ display: 'inline-block', width: '100%' }}/>
     <Panel header={props.shoe.model}>
       <div>
         <p>Size: {props.shoe.size}</p>
