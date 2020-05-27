@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import { Mycloset } from '../containers/Mycloset';
 import { Form, FormGroup, FormControl, ControlLabel, FlexboxGrid, Panel, Button, ButtonToolbar } from 'rsuite';
 
-export function Createshoe() {
+export function Createshoe(props) {
 
     let history = useHistory()
   
@@ -30,12 +30,12 @@ export function Createshoe() {
               brand: newShoe.brand,
               price: newShoe.price,
               image: newShoe.image,
-              user_id: localStorage.id
+              user_id: props.user.id
           })
         })
         .then(resp => resp.json())
-        // .then(data => setForm(initialValues)
-        .then(data => console.log(data)
+        .then(data => setForm(initialValues)
+        // .then(data => console.log(data)
         );
     
         history.push('/mycloset')

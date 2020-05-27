@@ -20,7 +20,7 @@ export default class Mycloset extends Component {
       })
       .then(resp => resp.json())
       .then(shoes => {
-       const usersShoes = shoes.filter(shoe => shoe.user_id === parseInt(localStorage.id))
+       const usersShoes = shoes.filter(shoe => shoe.user_id === (this.props.user.id))
        console.log(usersShoes)
       this.setState({
         userShoes: usersShoes
