@@ -34,9 +34,7 @@ export function Createshoe(props) {
           })
         })
         .then(resp => resp.json())
-        .then(data => setForm(initialValues)
-        // .then(data => console.log(data)
-        );
+        .then(data => setForm(initialValues));
     
         history.push('/mycloset')
     }

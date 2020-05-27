@@ -36,8 +36,12 @@ export function MainContainer(props) {
                                
                                 <Dropdown title={`${props.user.first_name}`}>
                                     <Dropdown.Item>Profile</Dropdown.Item>
+<<<<<<< HEAD
                                     <Dropdown.Item>My Listings</Dropdown.Item>
                                     <Dropdown.Item onClick={() => history.push('/cart')}>Cart</Dropdown.Item>
+=======
+                                    <Dropdown.Item onClick={ () => history.push('/mycloset')}>My Closet</Dropdown.Item>
+>>>>>>> bf41bd7efc2395b49d6d3e7330194ba1ddd78062
                                     <Dropdown.Item onClick={ () => handleLogout() }>Log Out</Dropdown.Item>
 
                                 </Dropdown>
