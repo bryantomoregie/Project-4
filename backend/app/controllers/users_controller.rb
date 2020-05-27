@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
+    before_action :define_current_user
 
     def index
         users = User.all
-
         render(json: users, :include => [:shoes, :transactions])
     end
     
@@ -38,9 +38,21 @@ class UsersController < ApplicationController
         render(json: user)
     end 
 
+    def define_current_user
+        if params[:id]
+            @current_user = User.find(params[:id])
+        else
+            @current_user = User.new
+        end
+    end
+
     def destroy 
         user = User.find(params[:id])
         user.destroy()
+    end
+
+    def current_user
+        @current_user
     end
 
 end
