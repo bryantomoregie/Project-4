@@ -11,32 +11,29 @@ import { Createshoe } from './components/Createshoe'
 import  Mycloset  from './containers/Mycloset'
 
 function App(props) {
-
+	
 	let [ user, setUser ] = useState(null)
 
-	let setCurrentUser = (id) => { setUser(id) } 
+	let setCurrentUser = (currentUser) => { setUser(currentUser) } 
 
 	useEffect(() => {
-		if(localStorage.id) {
-			setUser(parseInt(localStorage.id))
-			console.log(`logged in with user id: ${user}`)
-		}
-	})
-
-	// useEffect(() => {
-	// 	console.log('running')
-	// 	fetch('http://localhost:3000/login')
-	// 	.then(resp => resp.json())
-	// 	.then(data => console.log(data))
-	// }, [])
+		fetch('http://localhost:3000/login', {
+			credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+		})
+		.then(resp => resp.json())
+		.then(currentUser => setUser(currentUser))
+	}, [])
 
     return (
         <div className="App">
 			<BrowserRouter>
-				<MainContainer />
+				<MainContainer user={user} setCurrentUser={setCurrentUser}/>/>
 				<Route exact path="/" component={Homepage} />
 				<Route exact path="/all" component={ShoeContainer} />
-				<Route exact path="/login" component={() => <Login setUser={setCurrentUser}/>} />
+				<Route exact path="/login" component={() => <Login setCurrentUser={setCurrentUser}/>} />
 				<Route exact path="/signup" component={SignUp} />
 				<Route exact path="/createshoe" component={Createshoe} />
 				<Route exact path="/mycloset" component={Mycloset} />

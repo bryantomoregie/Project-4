@@ -9,7 +9,7 @@ import { useHistory } from 'react-router'
     let history = useHistory()
     
 
-    const [user, setUser ] = useState({
+    const [ form, setUser ] = useState({
         email: '',
         password: ''
     })
@@ -23,15 +23,16 @@ import { useHistory } from 'react-router'
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                email: user.email,
-                password: user.password
+                email: form.email,
+                password: form.password
             })
         })
-        let {success, id} = await response.json()
+        let {success, user} = await response.json()
         if(success){
+            // console.log(user)
+            // console.log(user.id)
+            props.setCurrentUser(user)
            history.push(`/`)
-            localStorage.id = id
-            props.setUser(id)
         }
     }
 
@@ -42,11 +43,11 @@ import { useHistory } from 'react-router'
                     <Form fluid>
                         <FormGroup>
                             <ControlLabel>Email</ControlLabel>
-                            <FormControl name="email" type="email" value={user.email} onChange={e => setUser({ ...user, email: e })}/>
+                            <FormControl name="email" type="email" value={form.email} onChange={e => setUser({ ...form, email: e })}/>
                         </FormGroup>
                         <FormGroup>
                             <ControlLabel>Password</ControlLabel>
-                            <FormControl name="password" type="password" value={user.password} onChange={e => setUser({ ...user, password: e })}/>
+                            <FormControl name="password" type="password" value={form.password} onChange={e => setUser({ ...form, password: e })}/>
                         </FormGroup>
                         <FormGroup>
                             <ButtonToolbar>
