@@ -1,20 +1,24 @@
 import React, { useState } from 'react'
-import { Navbar, Nav, Container, Header, Content } from 'rsuite';
+import { Navbar, Nav, Container, Header, Dropdown } from 'rsuite';
 import { useHistory } from 'react-router-dom';
 
-export function MainContainer() {
+export function MainContainer(props) {
     
     let history = useHistory()
 
-    let [ state, setState ] = useState({
-		styles: {
-			marginBottom: '50px'
-		}
-	})
-    
+	let handleLogout = () => {
+		fetch('http://localhost:3000/logout', {
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        props.setCurrentUser(null)
+	}
+
     return(
         <Container>
-            <Header style={state.styles}>
+            <Header style={{ marginBottom: '50px' }}>
                 <Navbar appearance="inverse">
                     <Navbar.Body>
                         <Nav>
@@ -22,15 +26,22 @@ export function MainContainer() {
                             <Nav.Item onClick={() => history.push('/all')}>Browse</Nav.Item>
                         </Nav>
                         <Nav pullRight>
-                            <Nav.Item onClick={() => history.push('/signup')}>Sign Up</Nav.Item>
-                            <Nav.Item onClick={() => history.push('/login')}>Login</Nav.Item>
+                            {!props.user ? 
+                                <div>
+                                    <Nav.Item onClick={() => history.push('/signup')}>Sign Up</Nav.Item>
+                                    <Nav.Item onClick={() => history.push('/login')}>Login</Nav.Item>
+                                </div>
+                                :
+                                <Dropdown title={`${props.user.first_name}`}>
+                                    <Dropdown.Item>Profile</Dropdown.Item>
+                                    <Dropdown.Item>My Listings</Dropdown.Item>
+                                    <Dropdown.Item onClick={ () => handleLogout() }>Log Out</Dropdown.Item>
+                                </Dropdown>
+                            }
                         </Nav>
                     </Navbar.Body>
                 </Navbar>
             </Header>
-            <Content>
-                
-            </Content>
         </Container>
     )
 }
