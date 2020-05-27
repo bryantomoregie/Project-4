@@ -7,8 +7,9 @@ import SignUp from './components/SignUp';
 import { Login } from './components/Login';
 import { Homepage } from './components/Homepage';
 import { BrowserRouter, Route, useHistory } from 'react-router-dom';
-import { Createshoe } from './components/Createshoe'
-import  Mycloset  from './containers/Mycloset'
+import { Createshoe } from './components/Createshoe';
+import  Mycloset  from './containers/Mycloset';
+import { Cart } from './components/cart/Cart'
 
 function App(props) {
 	
@@ -37,7 +38,8 @@ function App(props) {
 				<Route exact path="/signup" component={SignUp} />
 				<Route exact path="/createshoe" component={() => <Createshoe user={user}/>} />
 				<Route exact path="/mycloset" component={() => <Mycloset user={user}/>} />
-			</BrowserRouter>  
+        <Route exact path="/cart" component={Cart} />
+      </BrowserRouter>  
 		</div>
     );
   }
