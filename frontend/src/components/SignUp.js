@@ -24,6 +24,7 @@ export default function SignUp(props) {
         })
         .then(resp => resp.json())
         .then(data => setForm(initialValues))
+       history.push('/login')
     }
 
     useEffect(() => { console.log('running') }, [])
