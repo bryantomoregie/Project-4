@@ -2,17 +2,20 @@ import React, { Component, useState }  from 'react';
 import { ShoeCard } from '../components/ShoeCard'
 import { Button, IconButton, ButtonGroup, ButtonToolbar } from 'rsuite';
 import { useHistory } from 'react-router-dom';
+import CheckoutForm from './CheckoutForm'
 import RemoveShoe from '../components/RemoveShoe'
 
 export function Cart (props) {
   let history = useHistory()
   
+  let [ total, setTotal ] = useState(0)
   
 let getTotal = () => {
-  let total = 0 
+
   props.cart.forEach(shoe => {
     total += shoe.price
   });
+
     return total
 };
 
@@ -29,7 +32,7 @@ let getTotal = () => {
         <ButtonToolbar>
  
           <Button appearance="primary" onClick={() => history.push('/checkoutform')}>Proceed To Checkout</Button>
-    
+
         </ButtonToolbar>
       </div> 
     )
