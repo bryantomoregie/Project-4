@@ -32,11 +32,14 @@ export function MainContainer(props) {
                                     <Nav.Item onClick={() => history.push('/login')}>Login</Nav.Item>
                                 </div>
                                 :
+                                <div>
+                                <Nav.Item onClick={() => history.push('/createshoe')}>Sell</Nav.Item>
                                 <Dropdown title={`${props.user.first_name}`}>
                                     <Dropdown.Item>Profile</Dropdown.Item>
                                     <Dropdown.Item onClick={ () => history.push('/mycloset')}>My Closet</Dropdown.Item>
                                     <Dropdown.Item onClick={ () => handleLogout() }>Log Out</Dropdown.Item>
                                 </Dropdown>
+                                </div>
                             }
                         </Nav>
                     </Navbar.Body>
