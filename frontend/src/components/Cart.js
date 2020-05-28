@@ -13,6 +13,7 @@ class Cart extends Component {
     return(
      
       <div>
+        
         <div>{this.props.cart.map(shoe => <ShoeCard shoe={shoe} key={shoe.id}/>)}</div>
         <h1>Total Amount: ${this.getTotal()} </h1>
       </div>

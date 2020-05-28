@@ -24,13 +24,14 @@ export function MainContainer(props) {
                         <Nav>
                             <Nav.Item onClick={() => history.push('/')}><b>Home</b></Nav.Item>
                             <Nav.Item onClick={() => history.push('/all')}>Browse</Nav.Item>
+                            <Nav.Item onClick={() => history.push('/about')}>About</Nav.Item>
                         </Nav>
                         <Nav pullRight>
                             {!props.user ? 
                                 <div>
                                     <Nav.Item onClick={() => history.push('/signup')}>Sign Up</Nav.Item>
                                     <Nav.Item onClick={() => history.push('/login')}>Login</Nav.Item>
-                                    <Nav.Item onClick={() => history.push('/cart')}>Cart</Nav.Item>
+                                    
                                 </div>
                                 :
                                 <div>
