@@ -12,7 +12,7 @@ import  Cart  from './components/Cart'
 import { Createshoe } from './components/Createshoe'
 import ShoeDetails from './components/ShoeDetails'
 import { FlexboxGrid } from 'rsuite';
-import About from './components/About'
+import  About  from './components/About'
 
 
 function App(props) {
