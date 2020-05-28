@@ -29,9 +29,8 @@ class ShoesController < ApplicationController
 
  def show
     shoes = Shoe.find(params[:id])
-
-    render(json: shoes)
-
+    
+    render(json: shoes, :include => :user)
  end 
 
  def update 
