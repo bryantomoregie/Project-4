@@ -47,7 +47,7 @@ function App(props) {
 							<Route exact path="/signup" component={SignUp} />
 							<Route exact path="/createshoe" component={() => <Createshoe user={user}/>} />
 							<Route exact path="/mycloset" component={() => <Mycloset user={user}/>} />
-							<Route exact path="/cart" component={() => <Cart cart={cart} />} />
+							<Route exact path="/cart" component={() => <Cart cart={cart} setCart={setCart} />} />
 							<Route exact path="/shoes/:id" component={() => <ShoeDetails cart={cart} setCart ={setCart} />} />
 							<Route exact path="/checkoutform" component={() => <CheckoutForm/>} />
 						</FlexboxGrid.Item>

@@ -16,20 +16,22 @@ let getTotal = () => {
     return total
 };
 
+
     
     return(
      
       <div>
-        <div>{props.cart.map(shoe => <ShoeCard shoe={shoe} key={shoe.id}/>)}</div>
+
+       <div>
+        {props.cart.map(shoe =><div><ShoeCard shoe={shoe} key={shoe.id}/> <RemoveShoe shoe={shoe} key={shoe.id} cart={props.cart} setCart={props.setCart}/> </div>)}
+        </div>
         <h1>Total Amount: ${getTotal()} </h1>
         <ButtonToolbar>
  
           <Button appearance="primary" onClick={() => history.push('/checkoutform')}>Proceed To Checkout</Button>
     
         </ButtonToolbar>
-      </div>
-      
+      </div> 
     )
-  
 }
 export default Cart;
