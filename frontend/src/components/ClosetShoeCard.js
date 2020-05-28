@@ -6,25 +6,16 @@ export function ClosetShoeCard(props) {
 
   let history = useHistory()
 
-  let truncate = function(str) {
-      return str.length > 40 ? str.substring(0, 40) + "..." : str;
-  }
-
   return(
-      <Col md={6} sm={12}>
-          <Panel shaded onClick={() => history.push(`/shoes/${props.shoe.id}`)} style={{minHeight: '425px'}} >
-              <img src={props.shoe.image} style={{ display: 'inline-block', width: '100%'}} />
-              <Divider />
-              <Panel>
-                  <div>
-                      <h5>{truncate(props.shoe.model)}</h5>
-                      <p>Size: {props.shoe.size}</p>
-                      <br />
-                      <p> ${props.shoe.price}</p>
-                  </div>
-              </Panel>
-          </Panel>
-      </Col>
+    <Col md={6} sm={12}>
+        <Panel shaded onClick={() => history.push(`/shoes/${props.shoe.id}`)} style={{minHeight: '425px'}} align='center'>
+            <img src={props.shoe.image} style={{ display: 'inline-block', width: '100%'}} />
+            <Divider />
+            <Panel header={<b>{props.shoe.model}</b>}>
+                <h6>Size: {props.shoe.size} <Divider vertical /> ${props.shoe.price}</h6>
+            </Panel>
+        </Panel>
+    </Col>
   )
 
 }
