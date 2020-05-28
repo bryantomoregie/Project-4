@@ -32,6 +32,8 @@ export default function ShoeDetails(props) {
         props.setCart(newCart)        
     }
 
+  
+
     return(
         <div>
             <FlexboxGrid align="middle">

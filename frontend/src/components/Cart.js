@@ -1,5 +1,6 @@
 import React, { Component, useState }  from 'react';
 import { ShoeCard } from '../components/ShoeCard'
+import  RemoveShoe  from '../components/RemoveShoe'
 class Cart extends Component {
   getTotal(){
     let total = 0 
@@ -14,7 +15,9 @@ class Cart extends Component {
      
       <div>
         
-        <div>{this.props.cart.map(shoe => <ShoeCard shoe={shoe} key={shoe.id}/>)}</div>
+    <div>
+    {this.props.cart.map(shoe =><div><ShoeCard shoe={shoe} key={shoe.id}/> <RemoveShoe shoe={shoe} key={shoe.id} cart={this.props.cart} setCart={this.props.setCart}/> </div>)}
+    </div>
         <h1>Total Amount: ${this.getTotal()} </h1>
       </div>
       
