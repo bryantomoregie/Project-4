@@ -21,6 +21,8 @@ function App(props) {
 
 	let setCurrentUser = (currentUser) => { setUser(currentUser) } 
 
+	let clearCart = () => {setCart([])}
+
 	useEffect(() => {
 		fetch('http://localhost:3000/login', {
 			credentials: 'include',
@@ -47,7 +49,7 @@ function App(props) {
 							<Route exact path="/mycloset" component={() => <Mycloset user={user}/>} />
 							<Route exact path="/cart" component={() => <Cart cart={cart} />} />
 							<Route exact path="/shoes/:id" component={() => <ShoeDetails cart={cart} setCart ={setCart} />} />
-							<Route exact path="/checkoutform" component={() => <CheckoutForm/>} />
+							<Route exact path="/checkoutform" component={() => <CheckoutForm cart={cart} clearCart={clearCart}/>} />
 						</FlexboxGrid.Item>
 					</FlexboxGrid>
 			</BrowserRouter>  
