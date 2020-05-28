@@ -12,6 +12,7 @@ import  Cart  from './components/Cart'
 import { Createshoe } from './components/Createshoe'
 import ShoeDetails from './components/ShoeDetails'
 import { FlexboxGrid } from 'rsuite';
+import  CheckoutForm  from './components/CheckoutForm'
 
 function App(props) {
 	
@@ -44,7 +45,9 @@ function App(props) {
 							<Route exact path="/signup" component={SignUp} />
 							<Route exact path="/createshoe" component={() => <Createshoe user={user}/>} />
 							<Route exact path="/mycloset" component={() => <Mycloset user={user}/>} />
-							<Route exact path="/shoes/:id" component={() => <ShoeDetails />} />
+							<Route exact path="/cart" component={() => <Cart cart={cart} />} />
+							<Route exact path="/shoes/:id" component={() => <ShoeDetails cart={cart} setCart ={setCart} />} />
+							<Route exact path="/checkoutform" component={() => <CheckoutForm/>} />
 						</FlexboxGrid.Item>
 					</FlexboxGrid>
 			</BrowserRouter>  

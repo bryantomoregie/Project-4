@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :users, :shoes, :transactions
+  resources :users, :shoes, :transactions, :charges
 
   post('/login', to: 'authentication#login')
   
