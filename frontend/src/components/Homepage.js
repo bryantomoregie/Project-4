@@ -3,7 +3,8 @@ import { Button, IconButton, ButtonGroup, ButtonToolbar } from 'rsuite';
 import { useHistory } from 'react-router';
 import { Divider } from 'rsuite';
 import { FlexboxGrid } from 'rsuite';
-
+import '../Homepage.css';
+import 'rsuite/dist/styles/rsuite-default.css';
 
 export function Homepage(props){
     
@@ -11,7 +12,15 @@ export function Homepage(props){
  
         return(
             
+         
             <FlexboxGrid justify="space-around">
+                
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
                 <div colspan={8}>
                     <br></br>
                     <br></br>
@@ -34,6 +43,9 @@ export function Homepage(props){
                         <Button onClick={ () => history.push('/all')} size="lg" appearance="subtle" active>Browse shoes</Button>
                     </ButtonToolbar>
                 </div>
+
+
+               
     
                 <div colspan={8}>
                 <br></br>

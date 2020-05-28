@@ -22,7 +22,7 @@ export function MainContainer(props) {
                 <Navbar appearance="inverse">
                     <Navbar.Body>
                         <Nav>
-                            <Nav.Item onClick={() => history.push('/')}><b>Home</b></Nav.Item>
+                            <Nav.Item onClick={() => history.push('/')}><b>Shoe Palace</b></Nav.Item>
                             <Nav.Item onClick={() => history.push('/all')}>Browse</Nav.Item>
                             <Nav.Item onClick={() => history.push('/about')}>About</Nav.Item>
                         </Nav>
@@ -37,7 +37,7 @@ export function MainContainer(props) {
                                 <div>
                                 <Nav.Item onClick={() => history.push('/createshoe')}>Sell</Nav.Item>
                                 <Dropdown title={`${props.user.first_name}`}>
-                                    <Dropdown.Item>Profile</Dropdown.Item>
+                                    
                                     <Dropdown.Item onClick={() => history.push('/cart')}>Cart</Dropdown.Item>
                                     <Dropdown.Item onClick={ () => history.push('/mycloset')}>My Closet</Dropdown.Item>
                                     <Dropdown.Item onClick={ () => handleLogout() }>Log Out</Dropdown.Item>
