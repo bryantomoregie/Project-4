@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ShoeCard } from '../components/ShoeCard';
-import { Row, Form, FormGroup, FormControl, InputPicker } from 'rsuite';
+import { Row, Form, FormGroup, FormControl, Divider } from 'rsuite';
 
 
 export default class ShoeContainer extends Component {
@@ -34,6 +34,8 @@ export default class ShoeContainer extends Component {
 
         return(
             <div>
+                <h1>Current Listings</h1>
+                <Divider />
                 <Row>
                     <Form fluid>
                         <FormGroup>

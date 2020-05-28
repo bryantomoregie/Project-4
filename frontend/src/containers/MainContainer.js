@@ -33,7 +33,8 @@ export function MainContainer(props) {
                                     <Nav.Item onClick={() => history.push('/cart')}>Cart</Nav.Item>
                                 </div>
                                 :
-                               
+                                <div>
+                                <Nav.Item onClick={() => history.push('/createshoe')}>Sell</Nav.Item>
                                 <Dropdown title={`${props.user.first_name}`}>
                                     <Dropdown.Item>Profile</Dropdown.Item>
                                     <Dropdown.Item onClick={() => history.push('/cart')}>Cart</Dropdown.Item>
@@ -41,8 +42,8 @@ export function MainContainer(props) {
                                     <Dropdown.Item onClick={ () => handleLogout() }>Log Out</Dropdown.Item>
 
                                 </Dropdown>
-                                
-                                
+
+                                </div>
                             }
                             
                         </Nav>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, IconButton, ButtonGroup, ButtonToolbar } from 'rsuite';
+import { Button, IconButton, ButtonGroup, ButtonToolbar, Divider } from 'rsuite';
 import { useHistory } from 'react-router'
 import { Row, Form, FormGroup, FormControl, ControlLabel, HelpBlock } from 'rsuite';
 import { Table } from 'rsuite';
@@ -33,9 +33,13 @@ export default class Mycloset extends Component {
       	let userShoes = this.state.userShoes
 		
 	  	return(
-      		<Row>
-        		{userShoes.map(shoe => <ClosetShoeCard shoe={shoe} key={shoe.id}/>)}
-	      	</Row>
+			<div>
+				<h1>My Closet</h1>
+				<Divider />
+      			<Row>
+        			{userShoes.map(shoe => <ClosetShoeCard shoe={shoe} key={shoe.id}/>)}
+	      		</Row>
+			</div>
     	)
 
 	}
