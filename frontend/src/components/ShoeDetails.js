@@ -17,10 +17,11 @@ export default function ShoeDetails(props) {
 
    const handleAddtoCart = (e)=>{
        let newCart = props.cart.concat([shoe])
-       debugger
         props.setCart(newCart)
-        
+    
     }
+
+  
 
     return(
         <div>
