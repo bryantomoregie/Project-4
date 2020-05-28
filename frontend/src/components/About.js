@@ -10,9 +10,9 @@ export default function About(props) {
             <div>
                 <h1 className="about-header" >About Us</h1>
                 <Panel bordered>
-                <img src = "https://files.slack.com/files-pri/T02MD9XTF-F014TL11GG1/image.png" class="center"></img>
+                <img src = "https://images.complex.com/complex/images/c_fill,dpr_auto,f_auto,q_90,w_1400/fl_lossy,pg_1/cc5dvskqjobawc4mbygl/sneakerheads-feature" class="center"></img>
                 <h3>A complete new way to shop</h3> 
-                <p>Shoeapp is a social commerce platform for the next generation of retailers and shoppers. 
+                <p>Shoe Palace is a social commerce platform for the next generation of retailers and shoppers. 
                 Our mission is to transform commerce by combining the power of people and technology, 
                 making shopping and selling simple, social, and fun. It is a place where you can buy 
                 and sell new or used shoes you have sitting in your closet,
