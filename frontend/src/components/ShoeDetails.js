@@ -15,10 +15,18 @@ export default function ShoeDetails(props) {
         .then(data => setShoe(data))
     }, [])
 
+   const handleAddtoCart = (e)=>{
+       let newCart = props.cart.concat([shoe])
+       debugger
+        props.setCart(newCart)
+        
+    }
+
     return(
         <div>
             <h1>{shoe.model}</h1>
-            <Button appearance="primary">Add To Cart</Button>
+            <img src = {shoe.image}></img>
+            <Button appearance="primary" onClick={handleAddtoCart}>Add To Cart</Button>
         </div>
     )
 }

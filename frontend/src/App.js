@@ -7,14 +7,16 @@ import SignUp from './components/SignUp';
 import { Login } from './components/Login';
 import { Homepage } from './components/Homepage';
 import { BrowserRouter, Route, useHistory } from 'react-router-dom';
+import  Mycloset  from './containers/Mycloset';
+import  Cart  from './components/Cart'
 import { Createshoe } from './components/Createshoe'
-import  Mycloset  from './containers/Mycloset'
 import ShoeDetails from './components/ShoeDetails'
 import { FlexboxGrid } from 'rsuite';
 
 function App(props) {
 	
 	let [ user, setUser ] = useState(null)
+  let [cart, setCart] = useState([])
 
 	let setCurrentUser = (currentUser) => { setUser(currentUser) } 
 
@@ -28,8 +30,9 @@ function App(props) {
 		.then(resp => resp.json())
 		.then(currentUser => setUser(currentUser))
 	}, [])
-
+  
     return (
+      
         <div className="App">
 			<BrowserRouter>
 				<MainContainer user={user} setCurrentUser={setCurrentUser} />
