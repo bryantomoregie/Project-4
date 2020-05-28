@@ -13,6 +13,7 @@ import { Createshoe } from './components/Createshoe'
 import ShoeDetails from './components/ShoeDetails'
 import { FlexboxGrid } from 'rsuite';
 import  CheckoutForm  from './components/CheckoutForm'
+import  About  from './components/About'
 
 function App(props) {
 	
@@ -39,6 +40,7 @@ function App(props) {
 				<MainContainer user={user} setCurrentUser={setCurrentUser} />
 					<FlexboxGrid justify="center">
 						<FlexboxGrid.Item colspan={22}>
+              <Route exact path="/about" component={About}/> 
 							<Route exact path="/" component={() => <Homepage user={user}/>} />
 							<Route exact path="/all" component={ShoeContainer} />
 							<Route exact path="/login" component={() => <Login setCurrentUser={setCurrentUser}/>} />

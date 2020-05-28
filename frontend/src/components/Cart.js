@@ -27,7 +27,6 @@ let getTotal = () => {
           <Button appearance="primary" onClick={() => history.push('/checkoutform')}>Proceed To Checkout</Button>
     
         </ButtonToolbar>
-
       </div>
       
     )
